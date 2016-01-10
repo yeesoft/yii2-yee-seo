@@ -7,8 +7,7 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('yee/seo', 'Update SEO Record');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/seo', 'SEO'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('yee', 'Update');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="seo-update">

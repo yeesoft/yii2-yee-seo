@@ -12,7 +12,6 @@ use yii\data\ActiveDataProvider;
  */
 class SeoSearch extends Seo
 {
-    public $published_at_operand;
 
     /**
      * @inheritdoc
@@ -20,7 +19,7 @@ class SeoSearch extends Seo
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'index', 'follow'], 'integer'],
             [['url', 'title', 'keywords', 'description', 'author'], 'safe'],
         ];
     }
@@ -66,6 +65,8 @@ class SeoSearch extends Seo
         }
 
         $query->andFilterWhere(['id' => $this->id])
+            ->andFilterWhere(['index' => $this->index])
+            ->andFilterWhere(['follow' => $this->follow])
             ->andFilterWhere(['like', 'url', $this->url])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'keywords', $this->keywords])

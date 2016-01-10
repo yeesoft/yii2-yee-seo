@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-12">
-            <h3 class="lte-hide-title seo-title"><?= Html::encode($this->title) ?></h3>
+            <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
             <?= Html::a(Yii::t('yee', 'Add New'), ['/seo/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
@@ -49,27 +49,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
                     [
+                        'attribute' => 'url',
                         'class' => 'yeesoft\grid\columns\TitleActionColumn',
                         'controller' => '/seo/default',
                         'title' => function (Seo $model) {
-                            return Html::a($model->title, ['/seo/default/view', 'id' => $model->id], ['data-pjax' => 0]);
+                            return Html::a($model->url, ['/seo/default/update', 'id' => $model->id], ['data-pjax' => 0]);
                         },
+                        'buttonsTemplate' => '{update} {delete}',
                     ],
-                    'author',
-                    'keywords',
-                    'description',
+                    'title',
+                    //'author',
+                    //'keywords',
+                    //'description',
                     [
-                        'attribute' => 'created_by',
-                        'filter' => User::getUsersList(),
-                        'filterInputOptions' => [],
-                        'value' => function (Seo $model) {
-                            return Html::a($model->author->username,
-                                ['/user/default/view', 'id' => $model->created_by],
-                                ['data-pjax' => 0]);
-                        },
-                        'format' => 'raw',
-                        'visible' => User::hasPermission('viewUsers'),
-                        'options' => ['style' => 'width:180px'],
+                        'class' => 'yeesoft\grid\columns\StatusColumn',
+                        'attribute' => 'index',
+                        'options' => ['style' => 'width:30px'],
+                    ],
+                    [
+                        'class' => 'yeesoft\grid\columns\StatusColumn',
+                        'attribute' => 'follow',
+                        'options' => ['style' => 'width:30px'],
                     ],
                 ],
             ]);

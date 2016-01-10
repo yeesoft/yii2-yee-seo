@@ -18,6 +18,8 @@ use yii\db\ActiveRecord;
  * @property string $author
  * @property string $keywords
  * @property string $description
+ * @property integer $index
+ * @property integer $follow
  * @property integer $created_by
  * @property integer $created_at
  * @property integer $updated_at
@@ -37,15 +39,25 @@ class Seo extends ActiveRecord implements OwnerAccess
         return 'seo';
     }
 
+    public function init()
+    {
+        parent::init();
+
+        if ($this->isNewRecord && $this->className() == 'yeesoft\seo\models\Seo') {
+            $this->index = 1;
+            $this->follow = 1;
+        }
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['url', 'keywords', 'description', 'created_at', 'updated_at'], 'required'],
+            [['url', 'keywords', 'description'], 'required'],
             [['keywords', 'description'], 'string'],
-            [['created_by', 'created_at', 'updated_at', 'updated_by'], 'integer'],
+            [['index', 'follow', 'created_by', 'created_at', 'updated_at', 'updated_by'], 'integer'],
             [['url', 'title'], 'string', 'max' => 255],
             [['author'], 'string', 'max' => 127],
             [['url'], 'unique']
@@ -75,9 +87,11 @@ class Seo extends ActiveRecord implements OwnerAccess
             'author' => Yii::t('yee', 'Author'),
             'keywords' => Yii::t('yee/seo', 'Keywords'),
             'description' => Yii::t('yee', 'Description'),
+            'index' => Yii::t('yee/seo', 'Index'),
+            'follow' => Yii::t('yee/seo', 'Follow'),
             'created_by' => Yii::t('yee', 'Created By'),
-            'created_at' => Yii::t('yee', 'Created At'),
-            'updated_at' => Yii::t('yee', 'Updated At'),
+            'created_at' => Yii::t('yee', 'Created'),
+            'updated_at' => Yii::t('yee', 'Updated'),
             'updated_by' => Yii::t('yee', 'Updated By'),
         ];
     }

@@ -13,9 +13,12 @@ class m151226_234401_i18n_yee_seo_source extends SourceMessagesMigration
     public function getMessages()
     {
         return [
+            'Create SEO Record' => 1,
+            'Follow' => 1,
+            'Index' => 1,
+            'Keywords' => 1,
             'SEO' => 1,
             'Search Engine Optimization' => 1,
-            'Create SEO Record' => 1,
             'Update SEO Record' => 1,
         ];
     }

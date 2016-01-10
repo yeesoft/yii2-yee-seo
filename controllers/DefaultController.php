@@ -12,6 +12,8 @@ class DefaultController extends BaseController
     public $modelClass = 'yeesoft\seo\models\Seo';
     public $modelSearchClass = 'yeesoft\seo\models\search\SeoSearch';
 
+    public $disabledActions = ['view','bulk-activate', 'bulk-deactivate'];
+
     protected function getRedirectPage($action, $model = null)
     {
         switch ($action) {

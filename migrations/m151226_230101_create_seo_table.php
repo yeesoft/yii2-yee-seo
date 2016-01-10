@@ -19,6 +19,8 @@ class m151226_230101_create_seo_table extends Migration
             'author' => $this->string(127)->notNull()->defaultValue(''),
             'keywords' => $this->text()->defaultValue(''),
             'description' => $this->text()->defaultValue(''),
+            'index' => $this->smallInteger()->notNull()->defaultValue(1),
+            'follow' => $this->smallInteger()->notNull()->defaultValue(1),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
             'created_by' => $this->integer()->defaultValue(NULL),

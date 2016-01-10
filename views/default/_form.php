@@ -2,12 +2,9 @@
 
 use yeesoft\helpers\Html;
 use yeesoft\helpers\LanguageHelper;
-use yeesoft\media\widgets\TinyMce;
 use yeesoft\models\User;
-use yeesoft\seo\models\Seo;
 use yeesoft\widgets\ActiveForm;
 use yeesoft\widgets\LanguagePills;
-use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\seo\models\Seo */
@@ -33,6 +30,8 @@ use yii\jui\DatePicker;
                         <?= LanguagePills::widget() ?>
                     <?php endif; ?>
 
+                    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+
                     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
                     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
@@ -50,29 +49,13 @@ use yii\jui\DatePicker;
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="record-info">
+                        
+                        <?= $form->field($model, 'index')->checkbox() ?>
+
+                        <?= $form->field($model, 'follow')->checkbox() ?>
+
                         <?php if (!$model->isNewRecord): ?>
-
-                            <div class="form-group clearfix">
-                                <label class="control-label" style="float: left; padding-right: 5px;">
-                                    <?= $model->attributeLabels()['created_at'] ?> :
-                                </label>
-                                <span><?= $model->createdDatetime ?></span>
-                            </div>
-
-                            <div class="form-group clearfix">
-                                <label class="control-label" style="float: left; padding-right: 5px;">
-                                    <?= $model->attributeLabels()['updated_at'] ?> :
-                                </label>
-                                <span><?= $model->updatedDatetime ?></span>
-                            </div>
-
-                            <div class="form-group clearfix">
-                                <label class="control-label" style="float: left; padding-right: 5px;">
-                                    <?= $model->attributeLabels()['updated_by'] ?> :
-                                </label>
-                                <span><?= $model->updatedBy->username ?></span>
-                            </div>
-
+                            <?= $form->field($model, 'created_by')->dropDownList(User::getUsersList(), ['class' => '']) ?>
                         <?php endif; ?>
 
                         <div class="form-group">
@@ -90,21 +73,42 @@ use yii\jui\DatePicker;
                                 ]) ?>
                             <?php endif; ?>
                         </div>
+
                     </div>
                 </div>
             </div>
 
+            <?php if (!$model->isNewRecord): ?>
             <div class="panel panel-default">
                 <div class="panel-body">
-
                     <div class="record-info">
-                        <?php if (!$model->isNewRecord): ?>
-                            <?= $form->field($model, 'created_by')->dropDownList(User::getUsersList(), ['class' => '']) ?>
-                        <?php endif; ?>
+
+                            <div class="form-group clearfix">
+                                <label class="control-label" style="float: left; padding-right: 5px;">
+                                    <?= $model->attributeLabels()['updated_by'] ?> :
+                                </label>
+                                <span><?= $model->updatedBy->username ?></span>
+                            </div>
+
+                            <div class="form-group clearfix">
+                                <label class="control-label" style="float: left; padding-right: 5px;">
+                                    <?= $model->attributeLabels()['created_at'] ?> :
+                                </label>
+                                <span><?= $model->createdDatetime ?></span>
+                            </div>
+
+                            <div class="form-group clearfix">
+                                <label class="control-label" style="float: left; padding-right: 5px;">
+                                    <?= $model->attributeLabels()['updated_at'] ?> :
+                                </label>
+                                <span><?= $model->updatedDatetime ?></span>
+                            </div>
+
                     </div>
                 </div>
             </div>
 
+            <?php endif; ?>
         </div>
     </div>
 
