@@ -55,7 +55,7 @@ class Seo extends ActiveRecord implements OwnerAccess
     public function rules()
     {
         return [
-            [['url', 'keywords', 'description'], 'required'],
+            [['url'], 'required'],
             [['keywords', 'description'], 'string'],
             [['index', 'follow', 'created_by', 'created_at', 'updated_at', 'updated_by'], 'integer'],
             [['url', 'title'], 'string', 'max' => 255],
