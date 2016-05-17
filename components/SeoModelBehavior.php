@@ -4,7 +4,7 @@ namespace yeesoft\seo\components;
 
 use Yii;
 use yii\base\Behavior;
-use yii\db\ActiveRecord;
+use yeesoft\db\ActiveRecord;
 
 /**
  * Seo Model Behavior
