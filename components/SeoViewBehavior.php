@@ -46,8 +46,8 @@ class SeoViewBehavior extends Behavior
         $url     = $request->getUrl();
 
         $titleCallback = $this->titleCallback;
-        $siteTitle     = Yii::$app->settings->get('general.title', 'Yee Site');
-
+        $siteTitle     = Yii::$app->settings->get('general.title', 'Yee Site', Yii::$app->language);
+        
         if (is_callable($titleCallback)) {
             $title = $titleCallback($siteTitle, $view->title, Yii::$app->seo->title);
         } else {
