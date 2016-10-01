@@ -122,14 +122,9 @@ class Sitemap extends \yii\base\Component
                 if (!isset($link['lastmod'])) {
                     $link['lastmod'] = self::dateToW3C($model['lastmod']($item));
                 }
-                
-                if (!isset($model['changefreq'])) {
-                    $model['changefreq'] = $this->defaultChangeFrequency;
-                }
 
-                if (!isset($model['priority'])) {
-                    $model['priority'] = $this->defaultPriority;
-                }
+                $link['changefreq'] = (isset($model['changefreq'])) ? $model['changefreq'] : $this->defaultChangeFrequency;
+                $link['priority'] = (isset($model['priority'])) ? $model['priority'] : $this->defaultPriority;
 
                 foreach ($languages as $language) {
                     $loc = $model['loc']($item);
