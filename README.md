@@ -84,7 +84,20 @@ Note! For multilingual sites links will be generate for all languages.
 ],
 ```
 
-- Frontend routes for sitemap
+- Add action to SiteController (or another controller)
+
+```php
+public function actions()
+{
+	return [
+		'sitemap' => [
+			'class' => 'yeesoft\seo\actions\SitemapAction',
+		],
+	];
+}
+```
+
+- Add frontend routes for sitemap
 
 ```php
 'components' => [
@@ -97,3 +110,5 @@ Note! For multilingual sites links will be generate for all languages.
 	],
 ],
 ```
+
+
