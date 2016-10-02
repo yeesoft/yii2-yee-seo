@@ -105,7 +105,7 @@ public function actions()
 		...
 		'rules' => [
 			...
-        		'sitemap.xml' => 'sitemap/index',
+        		'sitemap.xml' => 'site/sitemap',
     		],
 	],
 ],
