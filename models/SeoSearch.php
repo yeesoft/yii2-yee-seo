@@ -1,6 +1,6 @@
 <?php
 
-namespace yeesoft\seo\models\search;
+namespace yeesoft\seo\models;
 
 use yeesoft\seo\models\Seo;
 use Yii;
@@ -31,6 +31,14 @@ class SeoSearch extends Seo
     {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -65,14 +73,15 @@ class SeoSearch extends Seo
         }
 
         $query->andFilterWhere(['id' => $this->id])
-            ->andFilterWhere(['index' => $this->index])
-            ->andFilterWhere(['follow' => $this->follow])
-            ->andFilterWhere(['like', 'url', $this->url])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'keywords', $this->keywords])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'author', $this->author]);
+                ->andFilterWhere(['index' => $this->index])
+                ->andFilterWhere(['follow' => $this->follow])
+                ->andFilterWhere(['like', 'url', $this->url])
+                ->andFilterWhere(['like', 'title', $this->title])
+                ->andFilterWhere(['like', 'keywords', $this->keywords])
+                ->andFilterWhere(['like', 'description', $this->description])
+                ->andFilterWhere(['like', 'author', $this->author]);
 
         return $dataProvider;
     }
+
 }

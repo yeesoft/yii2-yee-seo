@@ -91,8 +91,11 @@ class Seo extends ActiveRecord implements OwnerAccess
             'follow' => Yii::t('yee/seo', 'Follow'),
             'created_by' => Yii::t('yee', 'Created By'),
             'created_at' => Yii::t('yee', 'Created'),
+            'createdDatetime' => Yii::t('yee', 'Created'),
             'updated_at' => Yii::t('yee', 'Updated'),
             'updated_by' => Yii::t('yee', 'Updated By'),
+            'updatedDatetime' => Yii::t('yee', 'Updated By'),
+            'updatedByName' => Yii::t('yee', 'Updated By'),
         ];
     }
 
@@ -159,4 +162,10 @@ class Seo extends ActiveRecord implements OwnerAccess
     {
         return "{$this->updatedDate} {$this->updatedTime}";
     }
+
+    public function getUpdatedByName()
+    {
+        return $this->updatedBy->username;
+    }
+
 }

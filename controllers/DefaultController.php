@@ -10,7 +10,7 @@ use yeesoft\controllers\admin\BaseController;
 class DefaultController extends BaseController
 {
     public $modelClass = 'yeesoft\seo\models\Seo';
-    public $modelSearchClass = 'yeesoft\seo\models\search\SeoSearch';
+    public $modelSearchClass = 'yeesoft\seo\models\SeoSearch';
 
     public $disabledActions = ['view','bulk-activate', 'bulk-deactivate'];
 
