@@ -2,12 +2,12 @@
 
 namespace yeesoft\seo\controllers;
 
-use yeesoft\controllers\admin\BaseController;
+use yeesoft\controllers\CrudController;
 
 /**
  * Controller implements the CRUD actions for Seo model.
  */
-class DefaultController extends BaseController
+class DefaultController extends CrudController
 {
     public $modelClass = 'yeesoft\seo\models\Seo';
     public $modelSearchClass = 'yeesoft\seo\models\SeoSearch';
