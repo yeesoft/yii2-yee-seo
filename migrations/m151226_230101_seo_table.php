@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m151226_230101_create_seo_table extends Migration
+class m151226_230101_seo_table extends Migration
 {
     const SEO_TABLE = '{{%seo}}';
 

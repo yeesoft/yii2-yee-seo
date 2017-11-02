@@ -2,7 +2,6 @@
 
 namespace yeesoft\seo\models;
 
-use yeesoft\models\OwnerAccess;
 use yeesoft\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;
@@ -28,7 +27,7 @@ use yeesoft\db\ActiveRecord;
  * @property User $createdBy
  * @property User $updatedBy
  */
-class Seo extends ActiveRecord implements OwnerAccess
+class Seo extends ActiveRecord
 {
 
     /**

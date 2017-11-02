@@ -91,8 +91,8 @@ class Sitemap extends \yii\base\Component
     protected function generateLinks()
     {
         $result = [];
-        $languages = array_keys(Yii::$app->yee->displayLanguages);
-        $isMultilingual = Yii::$app->yee->isMultilingual;
+        $languages = array_keys(Yii::$app->displayLanguages);
+        $isMultilingual = Yii::$app->isMultilingual;
 
         foreach ($this->links as $link) {
             if (isset($link['lastmod'])) {

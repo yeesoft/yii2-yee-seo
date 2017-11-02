@@ -3,7 +3,6 @@
 use yeesoft\helpers\Html;
 use yeesoft\models\User;
 use yeesoft\widgets\ActiveForm;
-use yeesoft\widgets\LanguagePills;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\seo\models\Seo */
