@@ -114,24 +114,6 @@ class Seo extends ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
 
-    /**
-     *
-     * @inheritdoc
-     */
-    public static function getFullAccessPermission()
-    {
-        return 'fullSeoAccess';
-    }
-
-    /**
-     *
-     * @inheritdoc
-     */
-    public static function getOwnerField()
-    {
-        return 'created_by';
-    }
-
     public function getCreatedDate()
     {
         return Yii::$app->formatter->asDate(($this->isNewRecord) ? time() : $this->created_at);
