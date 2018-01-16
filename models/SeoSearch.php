@@ -5,7 +5,7 @@ namespace yeesoft\seo\models;
 use yeesoft\seo\models\Seo;
 use Yii;
 use yii\base\Model;
-use yii\data\ActiveDataProvider;
+use yeesoft\data\ActiveDataProvider;
 
 /**
  * SeoSearch represents the model behind the search form about `yeesoft\seo\models\Seo`.

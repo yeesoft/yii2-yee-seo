@@ -7,7 +7,7 @@ use yeesoft\seo\models\Seo;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yeesoft\seo\models\SeoSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $dataProvider yeesoft\data\ActiveDataProvider */
 
 $this->title = Yii::t('yee/seo', 'Search Engine Optimization');
 $this->params['breadcrumbs'][] = $this->title;
